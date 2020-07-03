@@ -157,7 +157,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>Hello World | 老子的神国 - 神国的庇佑者</title>
+    <title>android热修复 | 老子的神国 - 神国的庇佑者</title>
   <meta name="generator" content="Hexo 4.2.0"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
     
@@ -201,7 +201,7 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/hello-world/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/10/android%E7%83%AD%E4%BF%AE%E5%A4%8D/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="邓某人">
        <meta itemprop="description" content="喜欢钱">
@@ -212,11 +212,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">Hello World</h1>
+      <h1 class="post-title" itemprop="name headline">android热修复</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-03-06T09:52:18+08:00">2020-03-06 09:52:18</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-03-10T09:38:18+08:00">2020-03-10 09:38:18</time></span>
         </span>
         
         
@@ -224,22 +224,29 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+      <h5 id="热修复技术"><a href="#热修复技术" class="headerlink" title="热修复技术"></a><strong>热修复技术</strong></h5><p>1：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fblog.csdn.net%2Fasialiyazhou%2Farticle%2Fdetails%2F70495589" target="_blank" rel="noopener">qq空间超级补丁</a></p>
+<p>2：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fblog.csdn.net%2Flmj623565791%2Farticle%2Fdetails%2F54882693" target="_blank" rel="noopener">微信Tinker</a></p>
+<p>3：饿了么Amigo</p>
+<p>4：美团Robust :</p>
+<p>5：360RePlugin :</p>
+<p>6：滴滴出行VirtualAPK 等</p>
+<p><strong>dex文件原理</strong>：单个dex文件，全部最多65536个方法</p>
+<p><strong>dex分包</strong>：app启动时必须用到的类类和这些类文件放在主dex文件，其他放在次dex文件</p>
+<p><strong>类加载器</strong>：java的类加载器是加载class文件，而Android的虚拟机无论是dvm还是art都只能识别dex文件，所以java的类加载器在Android中不适用，Android中的 Java.lang.ClassLoader类也不同与java中的Java.lang.ClassLoader类。</p>
+<p><strong>ClassLoader</strong>层级关系为<em>ClassLoader—&gt;BaseDexClassLoader —&gt;Dex ClassLoader和PathClassLoader，</em></p>
+<p>其中:</p>
+<p><strong><em>PathClassLoader</em></strong>是用来加载Android系统类和应用的类</p>
+<p><strong><u>DexClassLoader</u></strong>支持加载APK、DEX和JAR，也可以从SD卡进行加载 ClassLoader类根据一个指定的类名称，找到或者生成相应的字节码，然后从这些字节码中定义出一个java类 <strong><u>DexClassLoader</u></strong>和<strong><em>PathClassLoader</em></strong>都属于符合双亲委派模型的类加载器（因为它们没有重载loadClass方法）。</p>
+<p><strong>类加载热修复</strong>：当分包完成之后，会形成一个<u>dex包的有序数组</u>，当需要加载类加载器的时候，会从数组中第一个dex包开始加载，<u>直到找到这个类为止</u>，当多个dex包中都有这个文件的时候，就<u>取第一个文件</u>，热修复是通过将已经修复了的bug包打成dex包，并将这个dex包放在<u>有序数组的第一个</u>，当加载类文件的时候，首先会找到修改好的dex包去替换之前存在bug的dex包，而排在后面的存在bug的dex包根据类加载器的双亲委派机制不会被加载，这就是类加载热修复方法的实现。</p>
 
     </main>
     <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Android/" rel="tag"><i class="fas fa-tags"></i>Android</a>
+        
+      </div>
       
     </footer>
   </article>
@@ -248,10 +255,12 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
+      <a href="/2020/03/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%97%A5%E8%AE%B0/" rel="next" title="第一篇日记"><i class="fas fa-angle-left"></i><span class="nav-title">第一篇日记</span></a>
+      
     </div>
     <div class="page-nav-prev page-nav-item">
       
-      <a href="/2020/03/09/ji/" rel="prev" title="ji"><span class="nav-title">ji</span><i class="fas fa-angle-right"></i></a>
+      <a href="/2020/03/10/android%E7%83%AD%E4%BF%AE%E5%A4%8D%E5%87%86%E5%A4%87%E7%9F%A5%E8%AF%86/" rel="prev" title="android热修复准备知识"><span class="nav-title">android热修复准备知识</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -322,7 +331,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#热修复技术"><span class="toc-text">热修复技术</span></a></li></ol></div>
     </div>
     
     

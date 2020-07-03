@@ -157,7 +157,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>Hello World | 老子的神国 - 神国的庇佑者</title>
+    <title>android热修复准备知识 | 老子的神国 - 神国的庇佑者</title>
   <meta name="generator" content="Hexo 4.2.0"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
     
@@ -201,7 +201,7 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/hello-world/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/10/android%E7%83%AD%E4%BF%AE%E5%A4%8D%E5%87%86%E5%A4%87%E7%9F%A5%E8%AF%86/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="邓某人">
        <meta itemprop="description" content="喜欢钱">
@@ -212,11 +212,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">Hello World</h1>
+      <h1 class="post-title" itemprop="name headline">android热修复准备知识</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-03-06T09:52:18+08:00">2020-03-06 09:52:18</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-03-10T10:26:17+08:00">2020-03-10 10:26:17</time></span>
         </span>
         
         
@@ -224,22 +224,24 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+      <h1 id="Android-ClassLoader详解"><a href="#Android-ClassLoader详解" class="headerlink" title="Android ClassLoader详解"></a>Android ClassLoader详解</h1><p>Android中类加载器有</p>
+<p><strong>BootClassLoader,</strong></p>
+<p><strong>URLClassLoader,</strong><br><strong>PathClassLoader,</strong></p>
+<p><strong>DexClassLoader,</strong></p>
+<p><strong>BaseDexClassLoader,</strong></p>
+<p>等都最终继承自<strong>java.lang.ClassLoader</strong>。</p>
+<h5 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h5><p>还有自定义的类加载器，它们之间的层次关系被称为类加载器的双亲委派模型。</p>
+<p><u>优点</u></p>
+<p><u>类就会随着加载它的ClassLoader一起具备了一种带有优先级的层级关系，通过这种层级关系可以避免类的重复加载，同时也能保证Java核心类库的安全性</u></p>
 
     </main>
     <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/android/" rel="tag"><i class="fas fa-tags"></i>android</a>
+        
+      </div>
       
     </footer>
   </article>
@@ -248,10 +250,10 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
+      <a href="/2020/03/10/android%E7%83%AD%E4%BF%AE%E5%A4%8D/" rel="next" title="android热修复"><i class="fas fa-angle-left"></i><span class="nav-title">android热修复</span></a>
+      
     </div>
     <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2020/03/09/ji/" rel="prev" title="ji"><span class="nav-title">ji</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -322,7 +324,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Android-ClassLoader详解"><span class="toc-text">Android ClassLoader详解</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#双亲委派模型"><span class="toc-text">双亲委派模型</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
     </div>
     
     

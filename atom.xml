@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-09T03:20:58.482Z</updated>
+  <updated>2020-03-10T02:45:35.544Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>android热修复准备知识</title>
+    <link href="http://yoursite.com/2020/03/10/android%E7%83%AD%E4%BF%AE%E5%A4%8D%E5%87%86%E5%A4%87%E7%9F%A5%E8%AF%86/"/>
+    <id>http://yoursite.com/2020/03/10/android%E7%83%AD%E4%BF%AE%E5%A4%8D%E5%87%86%E5%A4%87%E7%9F%A5%E8%AF%86/</id>
+    <published>2020-03-10T02:26:17.000Z</published>
+    <updated>2020-03-10T02:45:35.544Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Android-ClassLoader详解"><a href="#Android-ClassLoader详解" class="headerlink" title="Android ClassLoader详解"></a>Android ClassLoader详解</h1><p>Android中类加载器有</p><p><strong>BootClassLoader,</strong></p><p><strong>URLClassLoader,</strong><br><strong>PathClassLoader,</strong></p><p><strong>DexClassLoader,</strong></p><p><strong>BaseDexClassLoader,</strong></p><p>等都最终继承自<strong>java.lang.ClassLoader</strong>。</p><h5 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h5><p>还有自定义的类加载器，它们之间的层次关系被称为类加载器的双亲委派模型。</p><p><u>优点</u></p><p><u>类就会随着加载它的ClassLoader一起具备了一种带有优先级的层级关系，通过这种层级关系可以避免类的重复加载，同时也能保证Java核心类库的安全性</u></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Android-ClassLoader详解&quot;&gt;&lt;a href=&quot;#Android-ClassLoader详解&quot; class=&quot;headerlink&quot; title=&quot;Android ClassLoader详解&quot;&gt;&lt;/a&gt;Android ClassLoader详解&lt;/
+      
+    
+    </summary>
+    
+    
+    
+      <category term="android" scheme="http://yoursite.com/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>android热修复</title>
+    <link href="http://yoursite.com/2020/03/10/android%E7%83%AD%E4%BF%AE%E5%A4%8D/"/>
+    <id>http://yoursite.com/2020/03/10/android%E7%83%AD%E4%BF%AE%E5%A4%8D/</id>
+    <published>2020-03-10T01:38:18.000Z</published>
+    <updated>2020-03-10T02:26:02.090Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="热修复技术"><a href="#热修复技术" class="headerlink" title="热修复技术"></a><strong>热修复技术</strong></h5><p>1：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fblog.csdn.net%2Fasialiyazhou%2Farticle%2Fdetails%2F70495589" target="_blank" rel="noopener">qq空间超级补丁</a></p><p>2：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fblog.csdn.net%2Flmj623565791%2Farticle%2Fdetails%2F54882693" target="_blank" rel="noopener">微信Tinker</a></p><p>3：饿了么Amigo</p><p>4：美团Robust :</p><p>5：360RePlugin :</p><p>6：滴滴出行VirtualAPK 等</p><p><strong>dex文件原理</strong>：单个dex文件，全部最多65536个方法</p><p><strong>dex分包</strong>：app启动时必须用到的类类和这些类文件放在主dex文件，其他放在次dex文件</p><p><strong>类加载器</strong>：java的类加载器是加载class文件，而Android的虚拟机无论是dvm还是art都只能识别dex文件，所以java的类加载器在Android中不适用，Android中的 Java.lang.ClassLoader类也不同与java中的Java.lang.ClassLoader类。</p><p><strong>ClassLoader</strong>层级关系为<em>ClassLoader—&gt;BaseDexClassLoader —&gt;Dex ClassLoader和PathClassLoader，</em></p><p>其中:</p><p><strong><em>PathClassLoader</em></strong>是用来加载Android系统类和应用的类</p><p><strong><u>DexClassLoader</u></strong>支持加载APK、DEX和JAR，也可以从SD卡进行加载 ClassLoader类根据一个指定的类名称，找到或者生成相应的字节码，然后从这些字节码中定义出一个java类 <strong><u>DexClassLoader</u></strong>和<strong><em>PathClassLoader</em></strong>都属于符合双亲委派模型的类加载器（因为它们没有重载loadClass方法）。</p><p><strong>类加载热修复</strong>：当分包完成之后，会形成一个<u>dex包的有序数组</u>，当需要加载类加载器的时候，会从数组中第一个dex包开始加载，<u>直到找到这个类为止</u>，当多个dex包中都有这个文件的时候，就<u>取第一个文件</u>，热修复是通过将已经修复了的bug包打成dex包，并将这个dex包放在<u>有序数组的第一个</u>，当加载类文件的时候，首先会找到修改好的dex包去替换之前存在bug的dex包，而排在后面的存在bug的dex包根据类加载器的双亲委派机制不会被加载，这就是类加载热修复方法的实现。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;热修复技术&quot;&gt;&lt;a href=&quot;#热修复技术&quot; class=&quot;headerlink&quot; title=&quot;热修复技术&quot;&gt;&lt;/a&gt;&lt;strong&gt;热修复技术&lt;/strong&gt;&lt;/h5&gt;&lt;p&gt;1：&lt;a href=&quot;https://links.jianshu.com/go?t
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>第一篇日记</title>
