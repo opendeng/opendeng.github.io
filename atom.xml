@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-03T09:25:11.157Z</updated>
+  <updated>2020-07-06T02:09:07.893Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android Bundle容器</title>
+    <link href="http://yoursite.com/2020/07/06/Android%20Bundle%E5%AE%B9%E5%99%A8/"/>
+    <id>http://yoursite.com/2020/07/06/Android%20Bundle%E5%AE%B9%E5%99%A8/</id>
+    <published>2020-07-06T01:49:12.813Z</published>
+    <updated>2020-07-06T02:09:07.893Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: Android Bundle容器</span><br><span class="line">date: 2020-07-06 09:07:20</span><br><span class="line">tags: android</span><br></pre></td></tr></table></figure><h1 id="Android-Bundle容器"><a href="#Android-Bundle容器" class="headerlink" title="Android Bundle容器"></a>Android Bundle容器</h1><blockquote><p>凡走过，必留下痕迹。</p></blockquote><p>介绍：类似于Map的Key-value的形式，实现了Parcelable</p><p>作用：Bundle 与Intent 一样，都可以在Activity、Fragment中传递数据。</p><p>场景：</p><p>Activity的onSaveInstanceState(Bundle outState)</p><p>Activity的onCreate(Bundle saveInstanceState)</p><p>Fragment的argment属性</p><p>Message的setData、获取：meg.getData.getString(“key”)</p><p>Intent.putExtras(Bundle bundle)</p><p>清楚数据：clear()</p><p>例子：</p><p>第一种写法，用于批量添加数据到Intent：</p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; new Intent();</span><br><span class="line">　　Bundle bundle &#x3D; new Bundle();&#x2F;&#x2F;该类用作数据载体</span><br><span class="line">　　bundle.putString(&quot;name&quot;,&quot;Mike&quot;);</span><br><span class="line">　　intent.putExtras(bundle);&#x2F;&#x2F;可追加额外的数据，key同名的数据会被替换，与Map用法类似</span><br></pre></td></tr></table></figure><p>第二种写法：不通过Bundle,把数据一个个地添加进Intent，这种写法使用起来比较方便，代码更简洁。</p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; new Intent();</span><br><span class="line">　　intent.putExtra(&quot;name&quot;,&quot;XXX&quot;);&#x2F;&#x2F;注意：不是putExtras，</span><br></pre></td></tr></table></figure><p>取值：</p><p>传完数据后，现在看看如何将Intent和Bundle取出来：<br>　　①直接使用<strong>this.getIntent()</strong> 得到传来的<em>Intent</em>，<br>　　②然后在这个<em>Intent</em>的基础上调用getExtras()得到<strong>Bundle</strong>。<br>　　③根据数据类型可以从<strong>Bundle</strong>中get数据。<br>　　比如</p><p>​        <code>String str=bundle.getString(“Name”);得到键为“Name”的字符串</code></p><p>​        <code>int num=bundle.getInt(“code”);得到键为“code”的整型。</code><br>　　另外一定要注意<u>getExtras</u>和<u>getExtra</u>的区别。带s用于Bundle添加值和取值。</p><p><u><strong>Message.setData同理Intent的Bundle使用</strong></u></p><p>用Bundle向Fragment传递参数不会在Activit被重建时销毁。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;hljs highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Fragment的arguments属性</title>
+    <link href="http://yoursite.com/2020/07/06/Fragment%E7%9A%84arguments%E5%B1%9E%E6%80%A7/"/>
+    <id>http://yoursite.com/2020/07/06/Fragment%E7%9A%84arguments%E5%B1%9E%E6%80%A7/</id>
+    <published>2020-07-06T01:39:41.561Z</published>
+    <updated>2020-07-06T02:11:23.338Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: Fragment的arguments属性</span><br><span class="line">date: 2020-07-06 09:07:20</span><br><span class="line">tags: Fragment查缺补漏</span><br></pre></td></tr></table></figure><h1 id="Arguments（Bundle-bundle）"><a href="#Arguments（Bundle-bundle）" class="headerlink" title="Arguments（Bundle bundle）"></a>Arguments（Bundle bundle）</h1><blockquote><p>凡走过，必留下痕迹。</p></blockquote><p><strong>作用:</strong>Fragment.setArguments(Bundle bundle) 用来传递参数。</p><p>区别于构造方法直接来传递参数。</p><p>当Activity被重新创建的时候（屏幕旋转，后台运行内存过低被回收等等情况），会重构Activity所管理的Fragment，原先Fragment的字段将会全部显消失，使用arguments方法设置的bundle的值会保留下来，而用构造方法来传递的参数会消失。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;hljs highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>uniapp打包</title>

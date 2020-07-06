@@ -157,7 +157,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>ji | 老子的神国 - 神国的庇佑者</title>
+    <title>Fragment的arguments属性 | 老子的神国 - 神国的庇佑者</title>
   <meta name="generator" content="Hexo 4.2.0"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
     
@@ -201,7 +201,7 @@
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/09/ji/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/Fragment%E7%9A%84arguments%E5%B1%9E%E6%80%A7/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="邓某人">
        <meta itemprop="description" content="喜欢钱">
@@ -212,11 +212,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">ji</h1>
+      <h1 class="post-title" itemprop="name headline">Fragment的arguments属性</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-03-09T09:02:37+08:00">2020-03-09 09:02:37</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-07-06T09:39:41+08:00">2020-07-06 09:39:41</time></span>
         </span>
         
         
@@ -224,7 +224,15 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      
+      <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: Fragment的arguments属性</span><br><span class="line">date: 2020-07-06 09:07:20</span><br><span class="line">tags: Fragment查缺补漏</span><br></pre></td></tr></table></figure>
+
+<h1 id="Arguments（Bundle-bundle）"><a href="#Arguments（Bundle-bundle）" class="headerlink" title="Arguments（Bundle bundle）"></a>Arguments（Bundle bundle）</h1><blockquote>
+<p>凡走过，必留下痕迹。</p>
+</blockquote>
+<p><strong>作用:</strong>Fragment.setArguments(Bundle bundle) 用来传递参数。</p>
+<p>区别于构造方法直接来传递参数。</p>
+<p>当Activity被重新创建的时候（屏幕旋转，后台运行内存过低被回收等等情况），会重构Activity所管理的Fragment，原先Fragment的字段将会全部显消失，使用arguments方法设置的bundle的值会保留下来，而用构造方法来传递的参数会消失。</p>
+
     </main>
     <footer class="post-footer">
       
@@ -235,12 +243,12 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
-      <a href="/2020/03/06/hello-world/" rel="next" title="Hello World"><i class="fas fa-angle-left"></i><span class="nav-title">Hello World</span></a>
+      <a href="/2020/07/03/uniapp%E6%89%93%E5%8C%85/" rel="next" title="uniapp打包"><i class="fas fa-angle-left"></i><span class="nav-title">uniapp打包</span></a>
       
     </div>
     <div class="page-nav-prev page-nav-item">
       
-      <a href="/2020/03/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%97%A5%E8%AE%B0/" rel="prev" title="第一篇日记"><span class="nav-title">第一篇日记</span><i class="fas fa-angle-right"></i></a>
+      <a href="/2020/07/06/Android%20Bundle%E5%AE%B9%E5%99%A8/" rel="prev" title="Android Bundle容器"><span class="nav-title">Android Bundle容器</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -303,6 +311,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Arguments（Bundle-bundle）"><span class="toc-text">Arguments（Bundle bundle）</span></a></li></ol></div>
+    </div>
+    
     
     
     <hr>
